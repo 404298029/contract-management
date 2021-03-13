@@ -1,6 +1,6 @@
 <template>
   <div class="list-table">
-    <div class="list-1">2020年订单销售数据排行榜</div>
+    <div class="list-1"><span v-text="text"></span>年订单销售数据排行榜</div>
     <el-table
       :data="tableData"
       :row-style="tableRowStyle"
@@ -30,6 +30,11 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      text: new Date().getFullYear(),
+    };
+  },
   created() {},
   methods: {
     tableRowStyle({ row, rowIndex }) {
@@ -37,12 +42,12 @@ export default {
       return {
         // "background":'#304156d4',
         // "color":'#000'
-      }
+      };
     },
     //设置表头行的样式
     tableHeaderColor({ row, column, rowIndex, columnIndex }) {
       return "background:#f3f3f3e0;color:#000;font-wight:500;font-size:15px;text-align:center";
-    }, 
+    },
   },
 };
 </script>
@@ -55,6 +60,6 @@ export default {
 .list-table {
   width: 100%;
   height: 100%;
-  cursor: pointer; 
+  cursor: pointer;
 }
 </style>
